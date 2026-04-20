@@ -20,7 +20,7 @@ import com.example.a2450project.model.Soldier;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static Storage storage = new Storage();
+    public static Storage storage = new Storage(); //share same data
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
                 default:
                     crew = new Pilot(name);
                     break;
-            }
+            } //create different character
 
-            storage.addCrewMember(crew);
+            storage.addCrewMember(crew); //store Quarter
 
             Toast.makeText(this, selectedClass + " created in Quarters", Toast.LENGTH_SHORT).show();
 

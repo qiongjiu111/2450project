@@ -21,30 +21,30 @@ public class Storage {
 
     public void addCrewMember(CrewMember crew) {
         quartersList.add(crew);
-    }
+    } //store new character
 
     public void moveToSimulator(CrewMember crew) {
-        if (quartersList.remove(crew)) {
+        if (quartersList.remove(crew)) { //remove
             simulatorList.add(crew);
         }
     }
 
     public void moveToMissionControl(CrewMember crew) {
-        if (quartersList.remove(crew)) {
+        if (quartersList.remove(crew)) { //remove
             missionControlList.add(crew);
         }
     }
 
     public void returnFromSimulator(CrewMember crew) {
         if (simulatorList.remove(crew)) {
-            quarters.restoreEnergy(crew);
+            quarters.restoreEnergy(crew); //restore
             quartersList.add(crew);
         }
     }
 
     public void returnFromMissionControl(CrewMember crew) {
         if (missionControlList.remove(crew)) {
-            quarters.restoreEnergy(crew);
+            quarters.restoreEnergy(crew); //restore
             quartersList.add(crew);
         }
     }

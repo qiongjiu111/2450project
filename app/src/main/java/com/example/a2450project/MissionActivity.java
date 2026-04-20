@@ -51,7 +51,7 @@ public class MissionActivity extends AppCompatActivity {
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(adapter);
 
-        previewThreat = missionControl.generateThreat();
+        previewThreat = missionControl.generateThreat(); //create threat
 
         if (previewThreat != null) {
             threatName.setText(previewThreat.getName());
@@ -84,14 +84,14 @@ public class MissionActivity extends AppCompatActivity {
                 threatImage.setImageResource(R.drawable.threat);
             }
 
-            battleLog.setText(result.getLog());
+            battleLog.setText(result.getLog()); //battle log
 
             List<CrewMember> missionList = MainActivity.storage.getMissionControl();
             ArrayList<CrewMember> copy = new ArrayList<>(missionList);
 
             for (CrewMember crew : copy) {
                 if (!crew.isAlive()) {
-                    MainActivity.storage.removeDeadCrew(crew);
+                    MainActivity.storage.removeDeadCrew(crew); //delete
                 }
             }
 
@@ -113,7 +113,7 @@ public class MissionActivity extends AppCompatActivity {
                 if (crew.isAlive()) {
                     MainActivity.storage.returnFromMissionControl(crew);
                 } else {
-                    MainActivity.storage.removeDeadCrew(crew);
+                    MainActivity.storage.removeDeadCrew(crew); //delete
                 }
             }
 

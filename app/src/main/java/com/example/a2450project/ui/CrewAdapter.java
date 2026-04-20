@@ -64,7 +64,7 @@ public class CrewAdapter extends RecyclerView.Adapter<CrewAdapter.ViewHolder> {
 
         holder.image.setImageResource(getImage(type));
 
-        if (selected.contains(crew)) {
+        if (selected.contains(crew)) { //select
 
             GradientDrawable border = new GradientDrawable();
 
@@ -87,7 +87,7 @@ public class CrewAdapter extends RecyclerView.Adapter<CrewAdapter.ViewHolder> {
             holder.itemView.setElevation(8f);
         }
 
-        holder.itemView.setOnClickListener(v -> {
+        holder.itemView.setOnClickListener(v -> {  //show
             if (selected.contains(crew)) {
                 selected.remove(crew);
             } else {

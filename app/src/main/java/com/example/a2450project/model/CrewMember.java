@@ -49,7 +49,7 @@ public class CrewMember {
         }
     }
 
-    public void gainExperience(int xp) {
+    public void gainExperience(int xp) { //xp: 3hp, 6def, 12atk
         experience += xp;
 
         int hpLevel = experience / 3;

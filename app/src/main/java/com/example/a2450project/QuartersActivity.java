@@ -29,7 +29,7 @@ public class QuartersActivity extends AppCompatActivity {
         Button missionButton = findViewById(R.id.goMission);
         Button backButton = findViewById(R.id.backToCreate);
 
-        List<CrewMember> crewList = MainActivity.storage.getQuarters();
+        List<CrewMember> crewList = MainActivity.storage.getQuarters(); //get members
 
         adapter = new CrewAdapter(crewList);
 
@@ -45,7 +45,7 @@ public class QuartersActivity extends AppCompatActivity {
             ArrayList<CrewMember> selectedCrew = new ArrayList<>(adapter.getSelected());
 
             for (CrewMember crew : selectedCrew) {
-                MainActivity.storage.moveToSimulator(crew);
+                MainActivity.storage.moveToSimulator(crew); //move simulator
             }
 
             adapter.getSelected().clear();
@@ -63,7 +63,7 @@ public class QuartersActivity extends AppCompatActivity {
             ArrayList<CrewMember> selectedCrew = new ArrayList<>(adapter.getSelected());
 
             for (CrewMember crew : selectedCrew) {
-                MainActivity.storage.moveToMissionControl(crew);
+                MainActivity.storage.moveToMissionControl(crew); //move mission
             }
 
             adapter.getSelected().clear();

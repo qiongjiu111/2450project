@@ -26,7 +26,7 @@ public class MissionControl {
 
         int round = 1;
 
-        while (currentThreat.isAlive() && (first != null || second != null)) {
+        while (currentThreat.isAlive() && (first != null || second != null)) {  //battle lop
 
             log.append("--- Round ").append(round).append(" ---\n");
 
@@ -73,7 +73,7 @@ public class MissionControl {
             if (!currentThreat.isAlive()) {
 
                 if (first != null && first.isAlive()) {
-                    first.gainExperience(5);
+                    first.gainExperience(5); //rewards
                 }
                 if (second != null && second.isAlive()) {
                     second.gainExperience(5);

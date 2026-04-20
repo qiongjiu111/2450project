@@ -63,11 +63,11 @@ public class SimulatorActivity extends AppCompatActivity {
             ArrayList<CrewMember> copy = new ArrayList<>(simulatorList);
 
             for (CrewMember crew : copy) {
-                MainActivity.storage.returnFromSimulator(crew);
+                MainActivity.storage.returnFromSimulator(crew); //restore health
             }
 
             adapter.getSelected().clear();
-            adapter.notifyDataSetChanged();
+            adapter.notifyDataSetChanged(); //refresh
 
             Toast.makeText(this, "All crew returned to Quarters", Toast.LENGTH_SHORT).show();
             finish();
