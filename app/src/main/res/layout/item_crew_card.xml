@@ -19,8 +19,10 @@
     <ImageView
         android:id="@+id/cardImage"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:scaleType="centerCrop" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true" />
 
     <TextView
         android:id="@+id/hpText"

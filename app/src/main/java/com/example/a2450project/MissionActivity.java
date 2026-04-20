@@ -2,6 +2,8 @@ package com.example.a2450project;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ public class MissionActivity extends AppCompatActivity {
 
     private CrewAdapter adapter;
     private MissionControl missionControl;
+    private Threat previewThreat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +34,33 @@ public class MissionActivity extends AppCompatActivity {
         RecyclerView list = findViewById(R.id.missionList);
         Button startButton = findViewById(R.id.startMissionButton);
         Button returnButton = findViewById(R.id.returnFromMissionButton);
-        TextView threatInfo = findViewById(R.id.threatName);
+
+        TextView threatName = findViewById(R.id.threatName);
+        TextView threatHPText = findViewById(R.id.threatHPText);
+        TextView threatStats = findViewById(R.id.threatStats);
+        ProgressBar threatHPBar = findViewById(R.id.threatHP);
+        ImageView threatImage = findViewById(R.id.threatImage);
+
         TextView battleLog = findViewById(R.id.battleLog);
 
         List<CrewMember> crewList = MainActivity.storage.getMissionControl();
 
         missionControl = new MissionControl();
-
         adapter = new CrewAdapter(crewList);
 
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(adapter);
+
+        previewThreat = missionControl.generateThreat();
+
+        if (previewThreat != null) {
+            threatName.setText(previewThreat.getName());
+            threatHPText.setText("HP " + previewThreat.getEnergy() + "/" + previewThreat.getMaxEnergy());
+            threatStats.setText("ATK " + previewThreat.getSkill() + " DEF " + previewThreat.getResilience());
+            threatHPBar.setMax(previewThreat.getMaxEnergy());
+            threatHPBar.setProgress(previewThreat.getEnergy());
+            threatImage.setImageResource(R.drawable.threat);
+        }
 
         startButton.setOnClickListener(v -> {
 
@@ -57,12 +76,12 @@ public class MissionActivity extends AppCompatActivity {
             Threat threat = missionControl.getCurrentThreat();
 
             if (threat != null) {
-                threatInfo.setText(
-                        threat.getName()
-                                + " | ATK: " + threat.getSkill()
-                                + " | DEF: " + threat.getResilience()
-                                + " | HP: " + threat.getEnergy() + "/" + threat.getMaxEnergy()
-                );
+                threatName.setText(threat.getName());
+                threatHPText.setText("HP " + threat.getEnergy() + "/" + threat.getMaxEnergy());
+                threatStats.setText("ATK " + threat.getSkill() + " DEF " + threat.getResilience());
+                threatHPBar.setMax(threat.getMaxEnergy());
+                threatHPBar.setProgress(threat.getEnergy());
+                threatImage.setImageResource(R.drawable.threat);
             }
 
             battleLog.setText(result.getLog());
