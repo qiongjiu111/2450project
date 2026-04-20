@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="220dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp"
+    android:elevation="4dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/cardName"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="11sp" />
+
+    <ImageView
+        android:id="@+id/cardImage"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/hpText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HP 0/0"
+        android:textSize="11sp"
+        android:padding="4dp" />
+
+    <ProgressBar
+        android:id="@+id/hpBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="6dp" />
+
+    <TextView
+        android:id="@+id/statsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ATK 0 DEF 0 XP 0"
+        android:textSize="11sp"
+        android:padding="4dp" />
+
+</LinearLayout>
